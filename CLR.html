@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitra Lekha - Student & Musician</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f0f9;
+            /* Lightest Purple-Pink */
+            color: #5a5a5a;
+            /* Darker Gray for text */
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: linear-gradient(to right, #e6aee6, #aee6e6);
+            /* Gradient: Light Pink to Light Blue */
+            color: #444;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .profile-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 0.5em;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        header h1:hover,
+        header p:hover {
+            color: #7b68ee;
+            /* Cornflower Blue */
+            cursor: default;
+        }
+
+        nav {
+            background-color: #d8bfd8;
+            /* Light Purple */
+            color: #444;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: #444;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #c1a1c1;
+            /* Slightly darker purple */
+            color: white;
+        }
+
+        /* --- Sections --- */
+        section {
+            background-color: #fff;
+            margin: 1.5rem auto;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        section h2 {
+            color: #9b59b6;
+            /* Stronger Purple */
+            border-bottom: 3px solid #9b59b6;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        section h2:hover {
+            color: #6c3483;
+            /* Darker Purple */
+            cursor: default;
+        }
+
+        /* --- Articles (e.g., Education, Projects) --- */
+        article {
+            margin-bottom: 1rem;
+            transition: background-color 0.2s ease-in-out;
+            padding: 0.75rem;
+            border-radius: 5px;
+        }
+
+        article:hover {
+            background-color: #f0f0f0;
+        }
+
+        article h3 {
+            color: #8e44ad;
+            /* Another Stronger Purple */
+            margin-bottom: 0.5rem;
+        }
+
+        article h3:hover {
+            color: #5e2e83;
+            /* Even Darker Purple */
+            cursor: default;
+        }
+
+        /* --- Tables --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #e0e0e0;
+            padding: 0.75rem;
+            text-align: left;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+
+        th {
+            background-color: #f2e6ff;
+            /* Lightest Purple */
+            color: #666;
+        }
+
+        tr:hover td {
+            background-color: #e9d5ff;
+            /* Slightly lighter purple */
+            color: #333;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: linear-gradient(to left, #e6aee6, #aee6e6);
+            color: #444;
+            margin-top: 2rem;
+            border-radius: 0 0 10px 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        footer:hover {
+            background-color: #d4a3d4; /* Slightly lighter pink-purple */
+        }
+
+        footer p:hover {
+            color: #008080;
+            /* Teal */
+            cursor: default;
+        }
+
+        /* --- Contact Information --- */
+        .contact-info {
+            text-align: center;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e0b0e0;
+            /* Light Mauve */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-info:hover {
+            background-color: #c8a2c8; /* Slightly darker mauve */
+        }
+
+        .contact-info h2 {
+            color: #800080;
+            /* Purple */
+            border-bottom: 2px solid #800080;
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-info h2:hover {
+            color: #4a148c; /* Even darker purple */
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .contact-info p:hover {
+            color: #d4145a;
+            /* Hot Pink */
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-info a:hover {
+            color: #d4145a;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="profile-container">
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQE-lgONHY2SlQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726471739646?e=1750896000&v=beta&t=T5ICeW1DClnmylHvBnCi2oir9-KE0C44FGM5zNCMJUs"
+                alt="Chitra Lekha" class="profile-img">
+            <h1>Chitra Lekha</h1>
+            <p>Student & Musician</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm Chitra Lekha - a creator at heart with a voice that tells stories and a vision that brings ideas to
+            life. From composing soulful music to hosting events, speaking on stage, and building digital experiences, I
+            live at the intersection of creativity and communication. Currently studying at IIM Bangalore, I blend
+            strategy with self-expression, and I'm always exploring new ways to inspire, connect, and make an impact.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>Currently building a versatile skill set and gaining hands-on experience across music, media production, and
+            public performance.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Skill Category</th>
+                    <th>Skills</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Music</td>
+                    <td>Music Composition, Vocal Performance, Music Production</td>
+                </tr>
+                <tr>
+                    <td>Communication</td>
+                    <td>Public Speaking, Emcee/Hosting, Voice Over</td>
+                </tr>
+                <tr>
+                    <td>Digital</td>
+                    <td>Digital Marketing, Video Editing, Photography</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <article>
+            <h3>Indian Institute of Management Bangalore (IIMB)</h3>
+            <p>BBA in Digital Business & Entrepreneurship (DBE) | Bangalore | Currently Pursuing</p>
+        </article>
+        <article>
+            <h3>Mount Carmel College (MCC)</h3>
+            <p>BBA in Strategic Finance | Bangalore | Currently pursuing</p>
+        </article>
+        <article>
+            <h3>St. Claret PU College</h3>
+            <p>11th & 12th Grade (Pre-University) | Bangalore</p>
+        </article>
+        <article>
+            <h3>DPS | IGCSE | NIOS</h3>
+            <p>Nursery to 10th Grade | Various Institutions</p>
+        </article>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <article>
+            <h3>Community Library Founder</h3>
+            <p>Built a neighborhood library using donated and second-hand books</p>
+        </article>
+        <article>
+            <h3>Music Covers</h3>
+            <p>Produced and published vocal covers of popular and indie songs</p>
+        </article>
+        <article>
+            <h3>Behtar India Project</h3>
+            <p>Donated over 1000 kgs of waste paper to support environmental sustainability</p>
+        </article>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Certification</th>
+                    <th>Issuer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Grade 5 Rock & Pop Vocals</td>
+                    <td>Trinity College London</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:chitra.lekha4@iimb.ac.in">chitra.lekha4@iimb.ac.in</a></p>
+            <p><strong>Phone:</strong> <a href="tel:9731116007">9731116007</a></p>
+            <p><strong>Instagram:</strong> <a href="https://www.instagram.com/itschitrawho?igsh=MWNlaGMyNTl6Mjdsbw=="
+                    target="_blank">itschitrawho</a></p>
+            <p><strong>YouTube:</strong> <a href="https://youtube.com/@chitrasings?feature=shared" target="_blank">My YouTube
+                    Channel</a></p>
+            <p><strong>Location:</strong> Bangalore and Goa</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Chitra Lekha</p>
+    </footer>
+</body>
+
+</html>
